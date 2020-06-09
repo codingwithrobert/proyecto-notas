@@ -59,9 +59,11 @@ app.get('/notas/', (request, resolve) => {
     }
   });
 });
-/////////////////////////////////////////////////////////////////////////////// Actualizando NOTAs
+/////////////////////////////////////////////////////////////////////////////// Actualizando NOTAS
 app.put('/notas/update/id:/', (request, resolve) => {
+  // Texto que llega del body
   const texto = request.body.texto;
+  // ID que llega del body
   const id = request.body.id;
   const sql = `UPDATE lista_notas SET texto= '${texto}' WHERE id=${id}`;
   connection.query(sql, newNote, error => {

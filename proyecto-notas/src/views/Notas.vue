@@ -7,13 +7,7 @@
       <form>
         <label for="texto">Texto de la nota:</label>
         <br />
-        <textarea
-          name="texto"
-          id="textarea"
-          cols="40"
-          rows="10"
-          v-model="texto"
-        ></textarea>
+        <textarea name="texto" id="textarea" cols="40" rows="10" v-model="texto"></textarea>
         <br />
         <button @click="addNote()">Crear Nota</button>
       </form>
@@ -24,6 +18,11 @@
 
       <!-- Notas -->
       <h2>Notas</h2>
+      <p>Actualizando notas</p>
+      <input v-model="newText" placeholder="texto saldra aqui" />
+      <button>ACTUALIZAR</button>
+      <br />
+      <br />
       <notas :notas="notas"></notas>
       <!-- Fin Notas -->
     </div>
@@ -70,16 +69,16 @@ export default {
         .then(response => (self.notas = response.data))
         // de lo contrario tirame un error
         .catch(error => console.log(error));
-    },
-    created() {
-      // Llamo a  getNotes en cuanto la pagina se crea
-      this.getNotes();
     }
-    // showEditText() {
-    //   this.newText = data.texto;
-    //   this.id = data.id;
-    // }
-    // Cuando la web se cargue llamamos a las funciones con CREATED()
+  },
+  created() {
+    // Llamo a  getNotes en cuanto la pagina se crea
+    this.getNotes();
   }
+  // showEditText() {
+  //   this.newText = data.texto;
+  //   this.id = data.id;
+  // }
+  // Cuando la web se cargue llamamos a las funciones con CREATED()
 };
 </script>

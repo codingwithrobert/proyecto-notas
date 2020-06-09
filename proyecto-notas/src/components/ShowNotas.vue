@@ -18,7 +18,7 @@ export default {
     editNoteEvent(index) {
       // Guardando info nota en data
       let data = this.notas[index];
-      // enviando info a view
+      // enviando info a view $emit()
       this.$emit('editar', data);
     }
   }
