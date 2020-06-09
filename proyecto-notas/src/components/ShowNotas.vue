@@ -1,6 +1,6 @@
 <template>
   <div class="shownotas-container">
-    <div class="notas" v-for="nota in notas" :key="nota.id">
+    <div class="notas" v-for="(nota,index) in notas" :key="nota.id">
       {{ nota.texto }}
       <button @click="editNoteEvent(index)">EDITAR</button>
     </div>
